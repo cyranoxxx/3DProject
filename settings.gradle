@@ -1,0 +1,2 @@
+include ':app', ':3Dengine'
+project(':3Dengine').projectDir = new File('engine')

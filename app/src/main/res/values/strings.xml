@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">3D PROJE</string>
+    <string name="app_version">Version 1.0</string>
+    <string name="action_settings">Settings</string>
+    <!-- Activities -->
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_demo">Demo</string>
+    <string name="title_activity_text">Text</string>
+    <string name="title_activity_model">Model</string>
+    <!-- Demo menu -->
+    <string name="item">item</string>
+
+    <string-array name="menu_items">
+        <item>Model Yükle</item>
+        <item>Hakkında</item>
+        <item>Çıkış</item>
+    </string-array>
+
+    <string name="image">imaj</string>
+    <!-- About -->
+    <string name="about_text">Bu program .obj | .stl | .dae uzantılı 3D dosyaları açarak bu açılan dosyalar üzerinde texture(dokuları) üzerinde değişiklik yapmamızı sağlayan bir programdır. </string>
+    <!-- Load settings -->
+    <string name="model_name">Model adı</string>
+    <string name="texture">Doku</string>
+    <string name="invert_texture_coordinates">Dokuyu tersine çevir</string>
+    <string name="cancel">Vazgeç</string>
+    <string name="load">Yükle</string>
+    <string name="load_model">Model Yükle</string>
+
+    <!-- GL Settings -->
+    <string name="load_texture">Doku Yükle</string>
+
+</resources>
