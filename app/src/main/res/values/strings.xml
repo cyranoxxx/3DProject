@@ -20,7 +20,7 @@
 
     <string name="image">imaj</string>
     <!-- About -->
-    <string name="about_text">Bu program .obj | .stl | .dae uzantılı 3D dosyaları açarak bu açılan dosyalar üzerinde texture(dokuları) üzerinde değişiklik yapmamızı sağlayan bir programdır. </string>
+    <string name="about_text">Bu uygulama mobilyacılar için tasarlanmış olup mobilyacılara gelen müşterilerin almak istediği ürün hakkında hızla karar vermesini ve mobilyacının bu sayede hızlı satış yapmasını sağlamak amacıyla yazılmıştır. Müşteri tarafından seçilen ürünün 3 boyutlu görselinin mobilyacıların elinde bulunan  müşterinin istediği kumaş görseliyle kaplanmasını sağlayan bir uygulamadır.Uygulama (*.stl, *.obj, *.dae) uzantılı dosyaları desteklemektedir. </string>
     <!-- Load settings -->
     <string name="model_name">Model adı</string>
     <string name="texture">Doku</string>

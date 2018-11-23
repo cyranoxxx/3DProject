@@ -37,9 +37,9 @@
             android:parentActivityName="com.golhan.app.model3D.activity.MainActivity" >
         </activity>
         <activity
-            android:name="com.golhan.util.view.TextActivity"
-            android:label="@string/title_activity_text"
-            android:parentActivityName="com.golhan.app.model3D.activity.MainActivity" >
+                android:name="com.golhan.app.model3D.utility.view.TextActivity"
+                android:label="@string/title_activity_text"
+                android:parentActivityName="com.golhan.app.model3D.activity.MainActivity" >
         </activity>
         <activity
             android:name="com.golhan.app.model3D.activity.ModelActivity"
