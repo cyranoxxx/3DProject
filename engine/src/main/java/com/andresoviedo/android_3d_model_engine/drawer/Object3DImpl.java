@@ -17,13 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Abstract class that implements all calls to opengl to draw objects
- * <p>
- * Subclasses must provide vertex shader and specify whether the shaders supports specific features
- *
- * @author andresoviedo
- */
+
 public abstract class Object3DImpl implements Object3D {
 
     private final String id;
@@ -99,12 +93,7 @@ public abstract class Object3DImpl implements Object3D {
         }
 
         if (lightPos != null && supportsLighting()) {
-            // float[] lightPosInEyeSpace = new float[4];
-            // Matrix.multiplyMV(lightPosInEyeSpace, 0, vMatrix, 0, lightPos, 0);
-            // float[] mvMatrixLight = new float[16];
-            // // Matrix.multiplyMM(mvMatrixLight, 0, vMatrix, 0, mMatrixLight, 0);
-            // float[] mvpMatrixLight = new float[16];
-            // Matrix.multiplyMM(mvpMatrixLight, 0, pMatrix, 0, mvMatrixLight, 0);
+
             setLightPos(lightPos);
         }
 
@@ -394,11 +383,7 @@ public abstract class Object3DImpl implements Object3D {
     }
 }
 
-/**
- * Draw using single color
- *
- * @author andresoviedo
- */
+
 class Object3DV1 extends Object3DImpl {
 
     // @formatter:off
@@ -430,11 +415,7 @@ class Object3DV1 extends Object3DImpl {
     }
 }
 
-/**
- * Drawer using multiple colors & !light & !texture
- *
- * @author andresoviedo
- */
+
 class Object3DV2 extends Object3DImpl {
     // @formatter:off
     private final static String vertexShaderCode =
@@ -468,11 +449,7 @@ class Object3DV2 extends Object3DImpl {
     }
 }
 
-/**
- * Drawer using single color & textures & !light
- *
- * @author andresoviedo
- */
+
 class Object3DV3 extends Object3DImpl {
     // @formatter:off
     private final static String vertexShaderCode =
@@ -508,11 +485,7 @@ class Object3DV3 extends Object3DImpl {
     }
 }
 
-/**
- * Drawer using textures & colors & !light
- *
- * @author andresoviedo
- */
+
 class Object3DV4 extends Object3DImpl {
     // @formatter:off
     protected final static String vertexShaderCode =
@@ -557,11 +530,7 @@ class Object3DV4 extends Object3DImpl {
 
 }
 
-/**
- * Drawer using colors & lights & no texture
- *
- * @author andresoviedo
- */
+
 class Object3DV5 extends Object3DImpl {
     // @formatter:off
     private final static String vertexShaderCode =
@@ -632,11 +601,7 @@ class Object3DV5 extends Object3DImpl {
 
 }
 
-/**
- * Drawer using colors, textures & lights
- *
- * @author andres
- */
+
 class Object3DV6 extends Object3DImpl {
     // @formatter:off
     private final static String vertexShaderCode =
@@ -721,11 +686,7 @@ class Object3DV6 extends Object3DImpl {
 
 }
 
-/**
- * Drawer using color & lights & !texture
- *
- * @author andresoviedo
- */
+
 class Object3DV7 extends Object3DImpl {
     // @formatter:off
     private final static String vertexShaderCode =
@@ -798,11 +759,7 @@ class Object3DV7 extends Object3DImpl {
 
 }
 
-/**
- * Draw using single color and skeleton and light and no texture
- *
- * @author andresoviedo
- */
+
 class Object3DV10 extends Object3DImpl {
 
     // @formatter:off
@@ -952,11 +909,6 @@ class Object3DV10 extends Object3DImpl {
     }
 }
 
-/**
- * Draw using multiple colors and skeleton and light and no texture
- *
- * @author andresoviedo
- */
 class Object3DV11 extends Object3DImpl {
 
     // @formatter:off
@@ -1111,11 +1063,7 @@ class Object3DV11 extends Object3DImpl {
     }
 }
 
-/**
- * Draw using single color and skeleton and no light no texture
- *
- * @author andresoviedo
- */
+
 class Object3DV12 extends Object3DImpl {
 
     // @formatter:off

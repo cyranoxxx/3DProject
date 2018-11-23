@@ -42,10 +42,7 @@ public class AnimationLoader {
 		return new AnimationData(duration, keyFrames);
 	}
 
-    /**
-     * Process all animations and combine all key frames in order to have the global list of times
-     * @return
-     */
+
 	private TreeSet<Float> getKeyTimes(){
 		TreeSet<Float> ret = new TreeSet<>();
 		for (XmlNode animation : animationData.getChildren("animation")) {

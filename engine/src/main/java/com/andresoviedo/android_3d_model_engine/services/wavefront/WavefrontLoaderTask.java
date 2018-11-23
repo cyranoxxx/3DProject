@@ -15,12 +15,6 @@ import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Wavefront loader implementation
- *
- * @author andresoviedo
- */
-
 public class WavefrontLoaderTask extends LoaderTask {
 
     public WavefrontLoaderTask(final Activity parent, final Uri uri, final Callback callback) {

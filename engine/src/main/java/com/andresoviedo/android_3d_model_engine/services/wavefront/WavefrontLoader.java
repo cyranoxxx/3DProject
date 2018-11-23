@@ -1,31 +1,4 @@
-// WavefrontLoader.java
-// Andrew Davison, February 2007, ad@fivedots.coe.psu.ac.th
 
-/* Load the OBJ model from MODEL_DIR, centering and scaling it.
- The scale comes from the sz argument in the constructor, and
- is implemented by changing the vertices of the loaded model.
-
- The model can have vertices, normals and tex coordinates, and
- refer to materials in a MTL file.
-
- The OpenGL commands for rendering the model are stored in 
- a display list (modelDispList), which is drawn by calls to
- draw().
-
- Information about the model is printed to stdout.
-
- Based on techniques used in the OBJ loading code in the
- JautOGL multiplayer racing game by Evangelos Pournaras 
- (http://today.java.net/pub/a/today/2006/10/10/
- development-of-3d-multiplayer-racing-game.html 
- and https://jautogl.dev.java.net/), and the 
- Asteroids tutorial by Kevin Glass 
- (http://www.cokeandcode.com/asteroidstutorial)
-
- CHANGES (Feb 2007)
- - a global flipTexCoords boolean
- - drawToList() sets and uses flipTexCoords
- */
 
 package com.andresoviedo.android_3d_model_engine.services.wavefront;
 
@@ -153,10 +126,7 @@ public class WavefrontLoader {
 		return null;
 	}
 
-	/**
-	 * Count verts, normals, faces etc and reserve buffers to save the data.
-	 * @param is data source
-	 */
+
 	public void analyzeModel(InputStream is) {
 		int lineNum = 0;
 		String line;
@@ -221,10 +191,7 @@ public class WavefrontLoader {
 		Log.i("WavefrontLoader","Number of faces:"+numFaces);
 	}
 
-	/**
-	 * Allocate buffers for pushing the model data
-	 * TODO: use textureCoordsBuffer
-	 */
+
 	public void allocateBuffers() {
 		// size = 3 (x,y,z) * 4 (bytes per float)
 		vertsBuffer = createNativeByteBuffer(numVerts*3*4).asFloatBuffer();
@@ -328,17 +295,7 @@ public class WavefrontLoader {
 		}
 	} // end of readModel()
 
-	/**
-	 * Parse the vertex and add it to the buffer. If the vertex cannot be parsed,
-	 * then a default (0,0,0) vertex is added instead.
-	 *
-	 * @param buffer the buffer where the vertex is to be added
-	 * @param offset the offset of the buffer
-	 * @param line the vertex to parse
-	 * @param isFirstCoord if this is the first vertex to be parsed
-	 * @param dimensions the model dimesions so they are updated (TODO move this out of this method)
-	 * @return <code>true</code> if the vertex could be parsed, <code>false</code> otherwise
-	 */
+
 	private boolean addVert(FloatBuffer buffer, int offset, String line, boolean isFirstCoord, ModelDimensions dimensions)
 	/*
 	 * Add vertex from line "v x y z" to vert ArrayList, and update the model dimension's info.
@@ -837,17 +794,11 @@ public class WavefrontLoader {
 		private static final float DUMMY_Z_TC = -5.0f;
 
 		public final int totalFaces;
-		/**
-		 * indices for verticesused by each face
-		 */
+
 		public IntBuffer facesVertIdxs;
-		/**
-		 * indices for tex coords used by each face
-		 */
+
 		public ArrayList<int[]> facesTexIdxs;
-		/**
-		 * indices for normals used by each face
-		 */
+
 		public ArrayList<int[]> facesNormIdxs;
 
 		private FloatBuffer normals;
@@ -881,16 +832,12 @@ public class WavefrontLoader {
 			return totalFaces;
 		}
 
-		/**
-		 * @return <code>true</code> if all faces are loaded
-		 */
+
 		public boolean loaded(){
 			return facesLoadCounter == totalFaces;
 		}
 
-		/**
-		 * get this face's indicies from line "f v/vt/vn ..." with vt or vn index values perhaps being absent.
-		 */
+
 		public boolean addFace(String line) {
 			try {
 				line = line.substring(2); // skip the "f "

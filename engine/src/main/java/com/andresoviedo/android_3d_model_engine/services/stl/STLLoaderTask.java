@@ -17,11 +17,7 @@ import java.nio.FloatBuffer;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * + STL loader supported by the org.j3d STL parser
- *
- * @author andresoviedo
- */
+
 public final class STLLoaderTask extends LoaderTask {
 
     private STLFileReader stlFileReader;

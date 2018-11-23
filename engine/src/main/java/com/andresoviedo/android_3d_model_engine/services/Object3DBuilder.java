@@ -34,9 +34,7 @@ import java.util.ArrayList;
 public final class Object3DBuilder {
 
 	private static final int COORDS_PER_VERTEX = 3;
-	/**
-	 * Default vertices colors
-	 */
+
 	private static float[] DEFAULT_COLOR = {1.0f, 1.0f, 0, 1.0f};
 
 	final static float[] axisVertexLinesData = new float[]{
@@ -628,12 +626,7 @@ public final class Object3DBuilder {
 				.setColor(obj.getColor()).setId(obj.getId() + "_boundingBox");
 	}
 
-	/**
-	 * Builds a wireframe of the model by drawing all lines (3) of the triangles. This method uses
-	 * the drawOrder buffer.
-	 * @param objData the 3d model
-	 * @return the 3d wireframe
-	 */
+
 	public static Object3DData buildWireframe(Object3DData objData) {
 
 		if (objData.getDrawOrder() != null) {
@@ -704,13 +697,7 @@ public final class Object3DBuilder {
 		return objData;
 	}
 
-	/**
-	 * Build a wireframe from obj vertices and faces.  This method uses less memory that {@link #buildWireframe(Object3DData)}
-	 * --The problem-- in using this method  is that we are reshaping the object (scaling) after
-	 * it is loaded, so this wireframe wont match current state of the shape
-	 * @param objData the 3d model
-	 * @return the 3d wireframe
-	 */
+
 	public static Object3DData buildWireframe_from_original(Object3DData objData) {
 		try {
 			IntBuffer drawOrder = createNativeByteBuffer(objData.getFaces().getIndexBuffer().capacity() * 2 * 4).asIntBuffer();
@@ -731,14 +718,7 @@ public final class Object3DBuilder {
 		return objData;
 	}
 
-	/**
-	 * Generate a new object that contains all the line normals for all the faces for the specified object
-	 * <p>
-	 * TODO: This only works for objects made of triangles. Make it useful for any kind of polygonal face
-	 *
-	 * @param obj the object to which we calculate the normals.
-	 * @return the model with all the normal lines
-	 */
+
 	public static Object3DData buildFaceNormals(Object3DData obj) {
 		if (obj.getDrawMode() != GLES20.GL_TRIANGLES) {
 			return null;

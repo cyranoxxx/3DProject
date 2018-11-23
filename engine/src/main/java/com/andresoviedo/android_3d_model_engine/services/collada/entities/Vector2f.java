@@ -1,8 +1,6 @@
 package com.andresoviedo.android_3d_model_engine.services.collada.entities;
 
-/**
- * Created by andres on 18/11/17.
- */
+
 
 public class Vector2f {
 	public float x, y;

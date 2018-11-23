@@ -2,11 +2,7 @@ package com.andresoviedo.android_3d_model_engine.services.collada.entities;
 
 import java.util.List;
 
-/**
- * Contains the extracted data for an animated model, which includes the mesh data, and skeleton (joints heirarchy) data.
- * @author Karl
- *
- */
+
 public class AnimatedModelData {
 
 	private final SkeletonData joints;

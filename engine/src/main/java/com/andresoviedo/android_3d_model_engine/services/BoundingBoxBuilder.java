@@ -21,11 +21,7 @@ public class BoundingBoxBuilder {
 	public FloatBuffer colors;
 	public IntBuffer drawOrder;
 
-	/**
-	 * Build a bounding box for the specified 3D object vertex buffer.
-	 *
-	 * @param color        the color of the bounding box
-	 */
+
 	public BoundingBoxBuilder(BoundingBox box, float[] color) {
 		// initialize vertex byte buffer for shape coordinates
 		ByteBuffer bb = ByteBuffer.allocateDirect(

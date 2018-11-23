@@ -1,23 +1,8 @@
 package com.andresoviedo.android_3d_model_engine.model;
 
-// http://stackoverflow.com/questions/14607640/rotating-a-vector-in-3d-space
-
 import android.opengl.Matrix;
 import android.util.Log;
 
-/*
- Class Name:
-
- CCamera.
-
- Created by:
-
- Allen Sherrod (Programming Ace of www.UltimateGameProgramming.com).
-
- Description:
-
- This class represents a camera in a 3D scene.
- */
 
 public class Camera {
 
@@ -203,40 +188,16 @@ public class Camera {
 			Log.i("Camera", "Out of scene bounds");
 			return true;
 		}
-		/*List<Object3DData> objects = scene.getObjects();
-		for (int i = 0; objects != null && i < objects.size(); i++) {
-			BoundingBoxBuilder boundingBox = objects.get(i).getBoundingBox();
-			// Log.d("Camera","BoundingBoxBuilder? "+boundingBox);
-			if (boundingBox != null && boundingBox.insideBounds(
-					buffer[0] / buffer[3]
-					, buffer[1] / buffer[3]
-					, buffer[2] / buffer[3] )) {
-				Log.i("Camera", "Inside bounds of '" + objects.get(i).getId() + "'");
-				return true;
-			}
-		}*/
+
 		return false;
 	}
 
 	public void StrafeCam(float dX, float dY) {
-		// Now if we were to call UpdateCamera() we will be moving the camera
-		// foward or backwards.
-		// We don't want that here. We want to strafe. To do so we have to get
-		// the cross product
-		// of our direction and Up direction view. The up was set in SetCamera
-		// to be 1 positive
-		// y. That is because anything positive on the y is considered up. After
-		// we get the
-		// cross product we can save it to the strafe variables so that can be
-		// added to the
-		// camera using UpdateCamera().
+
 
 		float vlen;
 
-		// Translating the camera requires a directional vector to rotate
-		// First we need to get the direction at which we are looking.
-		// The look direction is the view minus the position (where we are).
-		// Get the Direction of the view.
+
 		float xLook = 0, yLook = 0, zLook = 0;
 		xLook = xView - xPos;
 		yLook = yView - yPos;
@@ -246,10 +207,7 @@ public class Camera {
 		yLook /= vlen;
 		zLook /= vlen;
 
-		// Next we get the axis which is a perpendicular vector of the view
-		// direction and up values.
-		// We use the cross product of that to get the axis then we normalize
-		// it.
+
 		float xArriba = 0, yArriba = 0, zArriba = 0;
 		xArriba = xUp - xPos;
 		yArriba = yUp - yPos;
@@ -293,15 +251,7 @@ public class Camera {
 		float xLookDirection = 0, yLookDirection = 0, zLookDirection = 0;
 		float CosineAngle = 0, SineAngle = 0;
 
-		// System.out.println("AngleDir[" + AngleDir + "]");
 
-		// First we will need to calculate the cos and sine of our angle. I
-		// creaetd two macros to
-		// do this in the CCamera.h header file called GET_COS and GET_SINE. To
-		// use the macros
-		// we just send in the variable we ant to store the results and the
-		// angle we need to
-		// calculate.
 		CosineAngle = (float) Math.cos(AngleDir);
 		SineAngle = (float) Math.sin(AngleDir);
 
@@ -374,10 +324,7 @@ public class Camera {
 			return;
 		}
 
-		// Next we get the axis which is a perpendicular vector of the view
-		// direction and up values.
-		// We use the cross product of that to get the axis then we normalize
-		// it.
+
 		float xAxis = 0, yAxis = 0, zAxis = 0;
 		float xDir = 0, yDir = 0, zDir = 0;
 
@@ -402,21 +349,7 @@ public class Camera {
 		RotateCamera(yDirection, 0, 1, 0);
 	}
 
-	/**
-	 * Translation is the movement that makes the Earth around the Sun.
-	 * So in this context, translating the camera means moving the camera around the Zero (0,0,0)
-	 *
-	 * This implementation makes uses of 3D Vectors Algebra.
-	 *
-	 * The idea behind this implementation is to translate the 2D user vectors (the line in the
-	 * screen) with the 3D equivalents.
-	 *
-	 * In order to to that, we need to calculate the Right and Arriba vectors so we have a match
-	 * for user 2D vector.
-	 *
-	 * @param dX the X component of the user 2D vector, that is, a value between [-1,1]
-	 * @param dY the Y component of the user 2D vector, that is, a value between [-1,1]
-	 */
+
 	public synchronized void translateCamera(float dX, float dY) {
 		//Log.v("Camera","translate:"+dX+","+dY);
 		if (dX == 0 && dY == 0) return;
@@ -427,10 +360,7 @@ public class Camera {
 	public void translateCameraImpl(float dX, float dY) {
 		float vlen;
 
-		// Translating the camera requires a directional vector to rotate
-		// First we need to get the direction at which we are looking.
-		// The look direction is the view minus the position (where we are).
-		// Get the Direction of the view.
+
 		float xLook = 0, yLook = 0, zLook = 0;
 		xLook = xView - xPos;
 		yLook = yView - yPos;
@@ -440,8 +370,7 @@ public class Camera {
 		yLook /= vlen;
 		zLook /= vlen;
 
-		// Arriba is the 3D vector that is **almost** equivalent to the 2D user Y vector
-		// Get the direction of the up vector
+
 		float xArriba = 0, yArriba = 0, zArriba = 0;
 		xArriba = xUp - xPos;
 		yArriba = yUp - yPos;
@@ -452,12 +381,9 @@ public class Camera {
 		yArriba /= vlen;
 		zArriba /= vlen;
 
-		// Right is the 3D vector that is equivalent to the 2D user X vector
-		// In order to calculate the Right vector, we have to calculate the cross product of the
-		// previously calculated vectors...
 
-		// The cross product is defined like:
-		// A x B = (a1, a2, a3) x (b1, b2, b3) = (a2 * b3 - b2 * a3 , - a1 * b3 + b1 * a3 , a1 * b2 - b1 * a2)
+
+
 		float xRight = 0, yRight = 0, zRight = 0;
 		xRight = (yLook * zArriba) - (zLook * yArriba);
 		yRight = (zLook * xArriba) - (xLook * zArriba);
@@ -468,8 +394,7 @@ public class Camera {
 		yRight /= vlen;
 		zRight /= vlen;
 
-		// Once we have the Look & Right vector, we can recalculate where is the final Arriba vector,
-		// so its equivalent to the user 2D Y vector.
+
 		xArriba = (yRight * zLook) - (zRight * yLook);
 		yArriba = (zRight * xLook) - (xRight * zLook);
 		zArriba = (xRight * yLook) - (yRight * xLook);
@@ -483,11 +408,7 @@ public class Camera {
 
 		if (dX != 0 && dY != 0) {
 
-			// in this case the user is drawing a diagonal line:    \v     ^\    v/     /^
-			// so, we have to calculate the perpendicular vector of that diagonal
 
-			// The perpendicular vector is calculated by inverting the X/Y values
-			// We multiply the initial Right and Arriba vectors by the User's 2D vector
 			xRight *= dY;
 			yRight *= dY;
 			zRight *= dY;

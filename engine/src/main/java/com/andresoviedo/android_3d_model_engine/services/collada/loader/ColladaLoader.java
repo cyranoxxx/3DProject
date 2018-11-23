@@ -182,14 +182,7 @@ public class ColladaLoader {
 		return new AnimatedModelData(meshData, jointsData);
 	}
 
-	/**
-	 * Constructs the joint-hierarchy skeleton from the data extracted from the
-	 * collada file.
-	 *
-	 * @param data
-	 *            - the joints data from the collada file for the head joint.
-	 * @return The created joint, with all its descendants added.
-	 */
+
 	private static Joint createJoints(JointData data) {
 		Joint joint = new Joint(data.index, data.nameId, data.bindLocalTransform, data.inverseBindTransform);
 		for (JointData child : data.children) {
@@ -207,15 +200,7 @@ public class ColladaLoader {
 		return animData;
 	}
 
-	/**
-	 * Loads up a collada animation file, and returns and animation created from
-	 * the extracted animation data from the file.
-	 *
-	 * @param colladaFile
-	 *            - the collada file containing data about the desired
-	 *            animation.
-	 * @return The animation made from the data in the file.
-	 */
+
 	public static Animation loadAnimation(InputStream colladaFile) {
 		AnimationData animationData = loadColladaAnimation(colladaFile);
 		KeyFrame[] frames = new KeyFrame[animationData.keyFrames.length];

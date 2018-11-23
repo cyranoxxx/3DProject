@@ -1,10 +1,6 @@
 package com.andresoviedo.android_3d_model_engine.drawer;
 
-/**
- * Drawer using color, textures & lights
- *
- * @author andres
- */
+
 class Object3DV8 extends Object3DImpl {
     // @formatter:off
     private final static String vertexShaderCode =

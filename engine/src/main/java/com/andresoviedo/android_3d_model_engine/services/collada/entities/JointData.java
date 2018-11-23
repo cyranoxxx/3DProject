@@ -5,13 +5,7 @@ import java.util.List;
 
 
 
-/**
- * Contains the extracted data for a single joint in the model. This stores the
- * joint's index, name, and local bind transform.
- * 
- * @author Karl
- *
- */
+
 public class JointData {
 
 	public final int index;

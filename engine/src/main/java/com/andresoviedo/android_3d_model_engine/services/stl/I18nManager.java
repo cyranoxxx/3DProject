@@ -1,8 +1,6 @@
 package com.andresoviedo.android_3d_model_engine.services.stl;
 
-/**
- * Created by andres on 17/04/17.
- */
+
 
 public class I18nManager {
 

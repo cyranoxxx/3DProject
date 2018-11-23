@@ -2,12 +2,7 @@ package com.andresoviedo.android_3d_model_engine.services.collada.entities;
 
 import java.nio.FloatBuffer;
 
-/**
- * This object contains all the mesh data for an animated model that is to be loaded into the VAO.
- * 
- * @author Karl
- *
- */
+
 public class MeshData {
 
 	private static final int DIMENSIONS = 3;

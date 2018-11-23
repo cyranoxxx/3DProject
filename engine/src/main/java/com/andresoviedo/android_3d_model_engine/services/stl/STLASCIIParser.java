@@ -1,13 +1,4 @@
-/*****************************************************************************
- * STLASCIIParser.java
- * Java Source
- *
- * This source is licensed under the GNU LGPL v2.1.
- * Please read http://www.gnu.org/copyleft/lgpl.html for more information.
- *
- * Copyright (c) 2002 Dipl. Ing. P. Szawlowski
- * University of Vienna, Dept. of Medical Computer Sciences
- ****************************************************************************/
+
 
 package com.andresoviedo.android_3d_model_engine.services.stl;
 
@@ -26,90 +17,55 @@ import java.util.StringTokenizer;
 
 // Internal imports
 
-/**
- * Class to parse STL (stereolithography) files in ASCII format.<p>
- *
- * <p>
- * <b>Internationalisation Resource Names</b>
- * <p>
- * <ul>
- * <li>invalidKeywordMsg: Unknown keyword encountered. </li>
- * <li>emptyFileMsg: File contained the header but no content. </li>
- * <li>invalidDataMsg: Some strange data was encountered. </li>
- * <li>unexpectedEofMsg: We hit an EOF before we were expecting to.</li>
- * </ul>
- *
- * @see STLFileReader
- * @see STLLoaderTask
- * @author  Dipl. Ing. Paul Szawlowski -
- *          University of Vienna, Dept of Medical Computer Sciences
- * @version $Revision: 2.0 $
- */
+
 class STLASCIIParser extends STLParser
 {
-    /** Error message of a keyword that we don't recognise */
+
     private static final String UNKNOWN_KEYWORD_MSG_PROP =
         "org.j3d.loaders.stl.STLASCIIParser.invalidKeywordMsg";
 
-    /**
-     * Error message when the solid header is found, but there is no
-     * geometry after it. Basically an empty file.
-     */
+
     private static final String EMPTY_FILE_MSG_PROP =
         "org.j3d.loaders.stl.STLASCIIParser.emptyFileMsg";
 
-    /** Unexpected data is encountered during parsing */
+
     private static final String INVALID_NORMAL_DATA_MSG_PROP =
         "org.j3d.loaders.stl.STLASCIIParser.invalidNormalDataMsg";
 
-    /** Unexpected data is encountered during parsing */
+
     private static final String INVALID_VERTEX_DATA_MSG_PROP =
         "org.j3d.loaders.stl.STLASCIIParser.invalidVertexDataMsg";
 
-    /** Unexpected EOF is encountered during parsing */
+
     private static final String EOF_WTF_MSG_PROP =
         "org.j3d.loaders.stl.STLASCIIParser.unexpectedEofMsg";
 
-    /** Reader for the main stream */
     private BufferedReader  itsReader;
 
-    /** The line number that we're at in the file */
+
     private int lineCount;
 
-    /**
-     * Create a new default parser instance.
-     */
+
     public STLASCIIParser()
     {
     }
 
 
-    /**
-     * Create a new default parser instance.
-     */
+
     public STLASCIIParser(boolean strict)
     {
         super(strict);
 
     }
 
-    /**
-     * Finish the parsing off now.
-     */
+
     public void close() throws IOException
     {
         if(itsReader != null)
             itsReader.close();
     }
 
-    /**
-     * Fetch a single face from the stream
-     *
-     * @param normal Array length 3 to copy the normals in to
-     * @param vertices A [3][3] array for each vertex
-     * @throws IllegalArgumentException The file was structurally incorrect
-     * @throws IOException Something happened during the reading
-     */
+
     public boolean getNextFacet(double[] normal, double[][] vertices)
         throws IOException
     {
@@ -281,9 +237,7 @@ class STLASCIIParser extends STLParser
         return true;
     }
 
-    /**
-     * @throws IllegalArgumentException The file was structurally incorrect
-     */
+
     public boolean parse(URL url, Component parentComponent)
         throws InterruptedIOException, IOException
     {
@@ -341,9 +295,7 @@ class STLASCIIParser extends STLParser
         return true;
     }
 
-    /**
-     * @throws IllegalArgumentException The file was structurally incorrect
-     */
+
     public boolean parse(URL url)
         throws IOException
     {
@@ -396,14 +348,6 @@ class STLASCIIParser extends STLParser
         return true;
     }
 
-    /**
-     * Parse the stream now from the given reader.
-     *
-     * @param reader The reader to source the file from
-     * @return true if this is a ASCII format file, false if not
-     * @throws IllegalArgumentException The file was structurally incorrect
-     * @throws IOException Something happened during the reading
-     */
     private boolean parse(BufferedReader reader)
         throws IOException, IllegalArgumentException
     {
@@ -514,10 +458,6 @@ class STLASCIIParser extends STLParser
         return true;
     }
 
-    /**
-     * Read three numbers from the tokeniser and place them in the double value
-     * returned.
-     */
     private void readNormal(StringTokenizer strtok, double[] vector)
         throws IOException
     {
@@ -556,10 +496,7 @@ class STLASCIIParser extends STLParser
         }
     }
 
-    /**
-     * Read three numbers from the tokeniser and place them in the double value
-     * returned.
-     */
+
     private void readCoordinate(StringTokenizer strtok, double[] vector)
         throws IOException
     {
@@ -604,9 +541,7 @@ class STLASCIIParser extends STLParser
         }
     }
 
-    /**
-     * Read a line from the input.  Ignore whitespace.
-     */
+
     private String readLine() throws IOException {
         String input_line = "";
 

@@ -9,12 +9,6 @@ import com.andresoviedo.util.android.GLUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Draw using single color, texture and skeleton and no light
- *
- * @author andresoviedo
- *
- */
 class Object3DV91 extends Object3DImpl {
 
     // @formatter:off

@@ -4,9 +4,6 @@ import android.opengl.Matrix;
 
 import java.nio.FloatBuffer;
 
-/**
- * @author andresoviedo
- */
 
 public final class BoundingBox {
 
@@ -71,17 +68,6 @@ public final class BoundingBox {
         return min;
     }
 
-    /*public float[] getCurrentMin(){
-        float[] ret = new float[4];
-        Matrix.multiplyMV(ret,0,getModelMatrix(),0,getMin(),0);
-        return ret;
-    }
-
-    public float[] getCurrentMax(){
-        float[] ret = new float[4];
-        Matrix.multiplyMV(ret,0,getModelMatrix(),0,getMax(),0);
-        return ret;
-    }*/
 
     public float[] getMax() {
         return max;

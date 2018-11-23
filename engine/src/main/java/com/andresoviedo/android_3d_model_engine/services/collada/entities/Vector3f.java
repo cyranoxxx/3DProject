@@ -2,9 +2,6 @@ package com.andresoviedo.android_3d_model_engine.services.collada.entities;
 
 import android.opengl.Matrix;
 
-/**
- * Created by andres on 18/11/17.
- */
 
 public class Vector3f {
 	public float x,y,z;
@@ -28,14 +25,7 @@ public class Vector3f {
 		return Matrix.length(x,y,z);
 	}
 
-	/**
-	 * Add a vector to another vector and place the result in a destination
-	 * vector.
-	 * @param left The LHS vector
-	 * @param right The RHS vector
-	 * @param dest The destination vector, or null if a new vector is to be created
-	 * @return the sum of left and right in dest
-	 */
+
 	public static Vector3f add(Vector3f left, Vector3f right, Vector3f dest) {
 		if (dest == null)
 			return new Vector3f(left.x + right.x, left.y + right.y, left.z + right.z);

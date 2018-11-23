@@ -21,11 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Loads the mesh data for a model from a collada XML file.
- * @author Karl
- *
- */
+
 public class GeometryLoader {
 	
 	private final XmlNode geometryNode;

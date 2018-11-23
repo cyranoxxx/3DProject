@@ -22,25 +22,14 @@ import java.nio.ShortBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * This is the basic 3D data necessary to build the 3D object
- * 
- * @author andres
- *
- */
+
 public class Object3DData {
 
 	// opengl version to use to draw this object
 	private int version = 5;
-	/**
-	 * The directory where the files reside so we can build referenced files in the model like material and textures
-	 * files
-	 */
+
 	private Uri uri;
-	/**
-	 * The assets directory where the files reside so we can build referenced files in the model like material and
-	 * textures files
-	 */
+
 	// private String assetsDir;
 	private String id;
 	private boolean drawUsingArrays = false;
@@ -51,10 +40,7 @@ public class Object3DData {
 	private boolean isVisible = true;
 
 	private float[] color;
-	/**
-	 * The minimum thing we can draw in space is a vertex (or point).
-	 * This drawing mode uses the vertexBuffer
-	 */
+
 	private int drawMode = GLES20.GL_POINTS;
 	private int drawSize;
 
@@ -167,11 +153,7 @@ public class Object3DData {
 		return octree;
 	}
 
-	/**
-	 * Can be called when the faces were loaded asynchronously
-	 *
-	 * @param faces 3d faces
-	 */
+
 	public Object3DData setFaces(Faces faces) {
 		this.faces = faces;
 		this.drawOrderBuffer = faces.getIndexBuffer();
@@ -336,10 +318,7 @@ public class Object3DData {
 		return drawOrderBuffer;
 	}
 
-    /**
-     * In case OpenGL doesn't support using GL_UNSIGNED_INT for glDrawElements(), then use this buffer
-     * @return the draw buffer as short
-     */
+
 	public ShortBuffer getDrawOrderAsShort() {
 		if (shortDrawOrderBuffer == null) {
 			shortDrawOrderBuffer = createNativeByteBuffer(drawOrderBuffer.capacity() * 2).asShortBuffer();

@@ -1,13 +1,3 @@
-/*****************************************************************************
- * STLBinaryParser.java
- * Java Source
- *
- * This source is licensed under the GNU LGPL v2.1.
- * Please read http://www.gnu.org/copyleft/lgpl.html for more information.
- *
- * Copyright (c) 2002 Dipl. Ing. P. Szawlowski
- * University of Vienna, Dept. of Medical Computer Sciences
- ****************************************************************************/
 
 package com.andresoviedo.android_3d_model_engine.services.stl;
 
@@ -24,32 +14,24 @@ import java.util.ArrayList;
 
 // Local imports
 
-/**
- * Class to parse STL (stereolithography) files in binary format.<p>
- * @see STLFileReader
- * @see STLLoaderTask
- * @author  Dipl. Ing. Paul Szawlowski -
- *          University of Vienna, Dept of Medical Computer Sciences
- * @version $Revision: 1.3 $
- */
+
 class STLBinaryParser extends STLParser
 {
-    /** size of binary header */
+
     private static  int HEADER_SIZE = 84;
 
-    /** size of one facet record in binary format */
+
     private static  int RECORD_SIZE = 50;
 
-    /** size of comments in header */
+
     private  static int COMMENT_SIZE = 80;
 
-    /** The stream that is being read from */
+
     private BufferedInputStream itsStream;
 
-    /** Common buffer for reading */
+
     private  byte[] itsReadBuffer;
 
-    /** Common buffer for reading the converted data from bytes */
     private  int[] itsDataBuffer;
 
     public STLBinaryParser()
@@ -58,12 +40,7 @@ class STLBinaryParser extends STLParser
         itsDataBuffer = new int[12];
     }
 
-    /**
-     * Constructor.
-     *
-     * @param strict Attempt to deal with crappy data or short downloads.
-     * Will try to return any useable geometry.
-     */
+
     public STLBinaryParser(boolean strict)
     {
         super(strict);
@@ -129,15 +106,7 @@ class STLBinaryParser extends STLParser
         return parse(length);
     }
 
-    /**
-     * Internal convenience method that does the stream parsing regardless of
-     * the input source the stream came from. Assumes itsStream is already
-     * initialised before it called here.
-     *
-     * @param length The length of data from the incoming stream, if not. Use
-     *   -1 not known.
-     * @return true if the method does not work out
-     */
+
     private boolean parse(int length)
         throws IllegalArgumentException, IOException
     {
@@ -188,11 +157,7 @@ class STLBinaryParser extends STLParser
         return false;
     }
 
-    /**
-     * Read the next face from the underlying stream
-     *
-     * @return true if the read completed successfully
-     */
+
     public boolean getNextFacet(double[] normal, double[][] vertices)
         throws IOException
     {

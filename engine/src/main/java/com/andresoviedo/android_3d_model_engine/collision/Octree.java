@@ -13,9 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by Andres on 21/12/2017.
- */
+
 
 public class Octree {
     final BoundingBox boundingBox;
